@@ -27,7 +27,7 @@ export default function App() {
     },[dispatch,navigate])
 
   return (
-    <div className='h-full bg-gray-800 w-full'>
+    <div className=' w-full'>
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>

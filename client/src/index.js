@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+// import { createUploadLink } from 'apollo-upload-client';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from '../src/states/store'
 import { Provider } from 'react-redux';
@@ -14,6 +15,8 @@ const httpLink = createHttpLink({
   uri: "http://localhost:8000/",
 });
 
+
+// setting up the authentication verification
 const authLink = setContext(() => {
   const token = JSON.parse(localStorage.getItem('token'));
   // console.log('token', token);

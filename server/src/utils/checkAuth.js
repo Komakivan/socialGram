@@ -12,7 +12,7 @@ const verifyToken = (context) => {
             if(authToken !== null) {
                 try {
                     // console.log(process.env.JWT_SECRET)
-                    const user = jwt.verify(authToken, "secret")
+                    const user = jwt.verify(authToken, process.env.JWT_SECRET)
                     // console.log(user.username)
                     return user;
                 } catch (error) {

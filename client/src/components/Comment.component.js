@@ -62,7 +62,7 @@ const Comment = ({ post }) => {
     }
 
   return (
-    <div class="mx-auto items-center justify-center p-3 mt-4 mb-4 max-w-lg">
+    <div className="mx-auto items-center justify-center p-3 mt-4 mb-4 max-w-lg">
         <Toaster/>
         {loading && <BarLoader
         color="green"
@@ -73,12 +73,12 @@ const Comment = ({ post }) => {
         data-testid="loader"
       />}
       
-        <form onSubmit={onSubmit} className="w-full max-w-xl bg-gray-800 rounded-lg px-4 pt-2">
+        <form onSubmit={onSubmit} className="w-full max-w-xl  rounded-lg px-4 pt-2">
             <div className="flex flex-wrap -mx-3 mb-6">
                 <h2 className="px-4 pt-3 pb-2 text-gray-600 text-lg">Add a new comment</h2>
                 <div className="w-full md:w-full px-3 mb-2 mt-2">
-                    <textarea value={value.body} className="bg-gray-800 rounded border border-gray-400 leading-normal
-                     resize-none w-full h-20 py-2 text-slate-300 px-3 font-medium placeholder-gray-700 focus:outline-none"
+                    <textarea value={value.body} className=" rounded border border-gray-400 leading-normal
+                     resize-none w-full h-20 py-2 text-slate-600 px-3 font-medium placeholder-gray-700 focus:outline-none"
                       name="body" placeholder='Type Your Comment' required onChange={e => setValue({body: e.target.value})}></textarea>
                 </div>
                 <div className="w-full flex items-start md:w-full px-3">

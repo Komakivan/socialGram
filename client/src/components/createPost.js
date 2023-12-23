@@ -26,6 +26,11 @@ const CREATE_POST = gql`
 
 const CreatePost = () => {
   const [values, setValues] = useState({ body: ""})
+  const [img, setImg] = useState(null)
+
+
+  // let's reconstruct the payload
+  const payload = { ...values, file: img }
 
   const [createPost, { loading}] = useMutation(CREATE_POST, {
     onCompleted: (data) => {
@@ -58,9 +63,17 @@ const CreatePost = () => {
         setValues({ body: ""});
     }
 
-    //
+    // get the body of the post
     const onChange = (e) => {
       setValues({body: e.target.value});
+    }
+
+    // handle file upload
+    const onUpload = (e) => {
+      const file = e.target.files[0];
+      if(!file) return
+      setImg(file)
+      console.log(payload)
     }
 
   return (
@@ -80,11 +93,16 @@ const CreatePost = () => {
             <div className="flex flex-wrap -mx-3 mb-6">
                 <h2 className="px-4 pt-3 pb-2 text-gray-300 text-lg">Add a new post</h2>
                 <div className="w-full md:w-full justify-between gap-1 flex px-3 mb-2 mt-2">
-                    <textarea value={values.body} className="rounded bg-gray-800 text-gray-300 border border-gray-400 leading-normal
+                  <div className=''>
+                    <textarea value={values.body} className="rounded  text-gray-600 border border-gray-400 leading-normal
                      resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-500 focus:outline-none"
                       name="body" placeholder='Type something...' required onChange={onChange}></textarea>
-                      <div className="-mr-1 flex">
+                      <span className='flex gap-6'>
+                      <input className='border p-1 rounded-md border-cyan-800' type='file' onChange={onUpload}/>
                       <input type='submit' className=" bg-purple-300 rounded text-slate-700 p-1 cursor-pointer" value='new post' />
+                      </span>
+                      </div>
+                      <div className="-mr-1 flex">
                     </div>
                 </div>
             </div>

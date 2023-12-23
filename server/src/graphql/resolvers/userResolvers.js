@@ -60,7 +60,7 @@ const userResolvers = {
                     id: user._id,
                     username: user.username,
                     email: user.email,
-               }, "secret", { expiresIn: "24h"} );
+               }, process.env.JWT_SECRET, { expiresIn: "24h"} );
 
                return {
                 ...user._doc,

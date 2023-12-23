@@ -21,7 +21,7 @@ async function startServer () {
         console.log("database connection established...")
     }).catch((err) => console.log(err))
     const { url } = await startStandaloneServer(server, {
-        listen: { port: 8000 },
+        listen: { port: 5000 },
         // this context is anything before the apollo server
         context: ({ req, res }) => ({ req })
     })

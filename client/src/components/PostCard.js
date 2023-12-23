@@ -95,7 +95,7 @@ const PostCard = ({ post }) => {
     return (
         <div className='max-w-md xl:max-w-xl mt-3 pt-1 pl-3 pr-3 pb-3 rounded border border-gray-400 leading-normal'>
             <span className='flex py-2 items-center justify-between'>
-                <p className={`text-slate-300 inline bg-gray-700 rounded-lg w-${post.author.length} font-mono`}>@{post.author}</p>
+                <p className={`text-slate-600 inline bg-gray-400 rounded-lg w-${post.author.length} font-mono`}>@{post.author}</p>
                 {user.id === post.authorId? "":<button onClick={()=>handleFollowingUser(post.authorId)} className='bg-purple-300 rounded text-slate-600 p-1'>
                      
                     {isFollowing? "following" : <ion-icon name="person-add-outline"></ion-icon>}
